@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:3</title>
+    <style>
+        /* Ajouter un style initial pour définir la taille des boutons */
+        input {
+            width: 100px;
+            /* taille initiale */
+            height: 100px;
+            /* taille initiale */
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #ff0066; /* Couleur rose (vous pouvez ajuster selon vos préférences) */
+            font-family: 'cursive'; /* Utilisation d'une police de caractères cursive pour un aspect romantique */
+        }
+        img {
+            width: 250px;
+        }
+
+        #buttonContainer {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="button"] {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            width: 100px; /* Ajuster la largeur des boutons selon vos besoins */
+        }
+
+        #okButton {
+            background-color: #5cb85c; /* Vert pour Oui */
+        }
+
+        #notOkButton {
+            background-color: #e74c3c; /* Rouge pour Non */
+        }
+    </style>
+</head>
+
+<body>
+    <img src="uwu.gif" alt="GIF animée" id="imageUwu"  style="width: 250px;"  loop>
+    <img src="owo.gif" alt="GIF animée" id="imageOwo" style="width: 250px; display: none;" loop>
+    <p>Anaiky ho valentine ako ve amin'ny 14 fevrier?</p>
+    <div id="buttonContainer">
+        <input type="button" value="Oui" id="okButton">
+        <input type="button" value="Non" id="notOkButton">
+    </div>
+    <script>
+
+        // Ajouter un gestionnaire d'événements au bouton "ok"
+        document.getElementById("okButton").addEventListener("click", function () {
+            // Redirection vers une autre page (modifier l'URL selon vos besoins)
+            window.location.href = "response.html";
+        });
+
+        
+        var imageUwu = document.getElementById("imageUwu");
+        var imageOwo = document.getElementById("imageOwo");
+
+        // Ajouter un gestionnaire d'événements au bouton "not ok"
+        document.getElementById("notOkButton").addEventListener("click", function () {
+            // Diminuer la taille du bouton "not ok"
+            var notOkButton = document.getElementById("notOkButton");
+            var currentSize = parseFloat(window.getComputedStyle(notOkButton).width);
+            notOkButton.style.width = (currentSize * 0.9) + "px"; // Réduire la taille de 10%
+            notOkButton.style.height = (currentSize * 0.9) + "px"; // Réduire la taille de 10%
+            notOkButton.value = ":(";
+
+            // Augmenter la taille du bouton "ok"
+            var okButton = document.getElementById("okButton");
+            var currentSizeOk = parseFloat(window.getComputedStyle(okButton).width);
+            okButton.style.width = (currentSizeOk * 1.1) + "px"; // Augmenter la taille de 10%
+            okButton.style.height = (currentSizeOk * 1.1) + "px"; // Augmenter la taille de 10%
+        });
+
+        // Ajouter un gestionnaire d'événements au bouton "not ok"
+        document.getElementById("notOkButton").addEventListener("mouseenter", function () {
+            // Afficher la deuxième image
+            imageOwo.style.display = "inline";
+            // Masquer la première image
+            imageUwu.style.display = "none";
+        });
+
+        document.getElementById("notOkButton").addEventListener("mouseleave", function () {
+            // Revenir à la première image lorsque le curseur quitte le bouton "not ok"
+            imageOwo.style.display = "none";
+            imageUwu.style.display = "inline";
+        });
+    </script>
+</body>
+
+</html>
